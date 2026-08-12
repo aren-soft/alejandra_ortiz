@@ -1,0 +1,150 @@
+---
+const profile = {
+  name: 'Dra. Alejandra Ortiz',
+  role: 'Abogada',
+  whatsapp: '5491137020938',
+  whatsappLabel: '+54 9 11 3702-0938',
+  email: 'alejandram_ortiz@hotmail.com',
+};
+
+const whatsappUrl = `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent('Hola Dra. Ortiz, quisiera realizar una consulta legal.')}`;
+
+const practiceAreas = [
+  {
+    number: '01',
+    title: 'Derecho penal',
+    description: 'Acompañamiento jurídico responsable y estratégico en cada instancia del proceso.',
+  },
+  {
+    number: '02',
+    title: 'Derecho laboral',
+    description: 'Orientación clara para resguardar derechos y construir respuestas jurídicas sólidas.',
+  },
+  {
+    number: '03',
+    title: 'Derecho sindical',
+    description: 'Asesoramiento en las relaciones colectivas de trabajo y la representación gremial.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Dra. Alejandra Ortiz — Asesoramiento jurídico integral." />
+    <title>{profile.name} | {profile.role}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">AO<span>.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Abrir menú</span><i></i><i></i>
+      </button>
+      <nav id="site-nav" aria-label="Principal">
+        <a href="#perfil">Perfil</a>
+        <a href="#practica">Áreas de práctica</a>
+        <a href="#enfoque">Enfoque</a>
+        <a class="nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Coordinar consulta</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">Asesoramiento jurídico integral</p>
+          <h1 id="hero-title">Clara en el criterio.<br /><em>Firme en la defensa.</em></h1>
+          <p class="hero-copy">Una mirada cercana y estratégica para acompañar cada decisión con seriedad, compromiso y atención personalizada.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">Coordinar una consulta <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#practica">Conocé las áreas <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-footer"><span>Derecho penal · laboral · sindical</span><span>Buenos Aires, Argentina</span></div>
+      </section>
+
+      <section class="profile section" id="perfil" aria-labelledby="profile-title">
+        <div class="profile-image"><img src="/images/ale_grad.jpg" alt="Dra. Alejandra Ortiz en su graduación" loading="lazy" /></div>
+        <div class="profile-content">
+          <p class="eyebrow">Perfil profesional</p>
+          <h2 id="profile-title">El derecho requiere escucha, precisión y presencia.</h2>
+          <p>La Dra. Alejandra Ortiz brinda asesoramiento jurídico con una perspectiva integral, enfocada en comprender cada caso y ofrecer un acompañamiento atento durante todo el proceso.</p>
+          <p>Su práctica abarca asuntos de derecho penal, laboral y sindical, con el compromiso de traducir cuestiones complejas en alternativas claras y fundadas.</p>
+          <a class="text-link dark" href={`mailto:${profile.email}`}>Escribir por email <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="practice section" id="practica" aria-labelledby="practice-title">
+        <div class="section-intro">
+          <p class="eyebrow">Áreas de práctica</p>
+          <h2 id="practice-title">Defensa y asesoramiento con una mirada integral.</h2>
+        </div>
+        <div class="practice-list">
+          {practiceAreas.map((area) => (
+            <article class="practice-item">
+              <span>{area.number}</span>
+              <div><h3>{area.title}</h3><p>{area.description}</p></div>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="approach section" id="enfoque" aria-labelledby="approach-title">
+        <div class="approach-number">01 / 03</div>
+        <div>
+          <p class="eyebrow">Forma de trabajo</p>
+          <h2 id="approach-title">Cada consulta merece una respuesta pensada para su contexto.</h2>
+        </div>
+        <div class="principles">
+          <p><strong>Escucha atenta.</strong> El punto de partida para comprender lo que está en juego.</p>
+          <p><strong>Criterio jurídico.</strong> Análisis riguroso y comunicación directa para decidir con información.</p>
+          <p><strong>Acompañamiento.</strong> Cercanía profesional en los momentos que requieren mayor respaldo.</p>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto" aria-labelledby="contact-title">
+        <p class="eyebrow">Primer paso</p>
+        <h2 id="contact-title">Hablemos de tu consulta.</h2>
+        <p>Podés comunicarte para coordinar una primera conversación y recibir orientación sobre tu situación.</p>
+        <a class="button button-primary light" href={whatsappUrl} target="_blank" rel="noreferrer">Escribir por WhatsApp <span aria-hidden="true">↗</span></a>
+        <a class="contact-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#inicio">AO<span>.</span></a><p>© {new Date().getFullYear()} {profile.name}</p><a href={whatsappUrl} target="_blank" rel="noreferrer">{profile.whatsappLabel}</a></footer>
+
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.querySelector<HTMLElement>('#site-nav');
+      toggle?.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        nav?.classList.toggle('is-open', !open);
+      });
+      nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        toggle?.setAttribute('aria-expanded', 'false');
+        nav?.classList.remove('is-open');
+      }));
+    </script>
+  </body>
+</html>
+
+<style>
+  :root { --ink:#132129; --paper:#f4f0e8; --gold:#b6965c; --muted:#687477; --line:rgba(19,33,41,.17); }
+  * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans',sans-serif; font-size:16px; line-height:1.65; } a { color:inherit; text-decoration:none; } h1,h2,h3,p { margin:0; } h1,h2,h3 { font-family:'Playfair Display',serif; line-height:1.08; font-weight:600; } .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .site-header { position:absolute; z-index:2; top:0; left:0; width:100%; padding:25px max(5vw,32px); display:flex; align-items:center; justify-content:space-between; color:#fff; } .brand { font-family:'Playfair Display',serif; font-size:27px; font-weight:700; letter-spacing:-.07em; } .brand span { color:var(--gold); } nav { display:flex; gap:31px; align-items:center; font-size:13px; font-weight:500; } nav > a:not(.nav-cta) { opacity:.85; transition:opacity .2s; } nav > a:not(.nav-cta):hover { opacity:1; } .nav-cta { border:1px solid rgba(255,255,255,.55); padding:10px 17px; transition:background .2s,color .2s; } .nav-cta:hover { background:#fff; color:var(--ink); }
+  .menu-toggle { display:none; background:transparent; border:0; padding:6px 0; width:30px; } .menu-toggle i { display:block; height:1px; background:#fff; margin:6px 0; }
+  .hero { min-height:780px; min-height:100svh; color:#fff; padding:145px max(5vw,32px) 40px; display:flex; flex-direction:column; justify-content:center; position:relative; background:linear-gradient(90deg,rgba(8,18,22,.84) 0%,rgba(8,18,22,.6) 47%,rgba(8,18,22,.25) 100%),url('/images/ale_fondo.jpg') center/cover; } .hero-content { max-width:750px; } .eyebrow { color:var(--gold); letter-spacing:.15em; text-transform:uppercase; font-size:11px; font-weight:600; margin-bottom:24px; } h1 { font-size:clamp(3.2rem,7vw,6.5rem); letter-spacing:-.055em; } h1 em { font-weight:500; } .hero-copy { font-size:17px; max-width:510px; margin-top:30px; color:rgba(255,255,255,.82); } .hero-actions { margin-top:39px; display:flex; gap:29px; align-items:center; flex-wrap:wrap; } .button { display:inline-flex; align-items:center; gap:29px; text-transform:uppercase; letter-spacing:.09em; font-size:11px; font-weight:600; padding:16px 19px; transition:transform .2s, background .2s; } .button:hover { transform:translateY(-2px); } .button-primary { background:var(--gold); color:#18232a; } .button-primary:hover { background:#c6a96d; } .text-link { font-size:12px; letter-spacing:.04em; border-bottom:1px solid rgba(255,255,255,.55); padding-bottom:5px; } .text-link span { color:var(--gold); margin-left:9px; } .hero-footer { position:absolute; left:max(5vw,32px); right:max(5vw,32px); bottom:34px; display:flex; justify-content:space-between; padding-top:17px; border-top:1px solid rgba(255,255,255,.3); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.8); }
+  .section { padding:clamp(80px,12vw,160px) max(8vw,32px); } .profile { display:grid; grid-template-columns:minmax(260px,.82fr) minmax(300px,1fr); gap:clamp(52px,10vw,150px); align-items:center; max-width:1440px; margin:auto; } .profile-image { height:580px; overflow:hidden; background:#d6d0c5; } .profile-image img { width:100%; height:100%; object-fit:cover; object-position:71% center; filter:saturate(.72) contrast(.98); } .profile-content { max-width:555px; } h2 { font-size:clamp(2.25rem,4.2vw,4.1rem); letter-spacing:-.05em; } .profile-content p:not(.eyebrow) { margin-top:23px; color:#465154; max-width:505px; } .text-link.dark { display:inline-block; margin-top:32px; color:var(--ink); border-color:var(--ink); }
+  .practice { background:var(--ink); color:#f9f6ef; } .section-intro { display:grid; grid-template-columns:1fr 1.4fr; max-width:1220px; margin:0 auto 70px; } .section-intro h2 { max-width:720px; } .practice-list { max-width:1220px; margin:auto; border-top:1px solid rgba(255,255,255,.2); } .practice-item { display:grid; grid-template-columns:12% 1fr auto; gap:22px; padding:31px 0 28px; border-bottom:1px solid rgba(255,255,255,.2); } .practice-item > span:first-child { color:var(--gold); font-size:12px; } .practice-item h3 { font-size:clamp(1.7rem,2.8vw,2.55rem); letter-spacing:-.04em; } .practice-item p { color:rgba(255,255,255,.67); font-size:14px; max-width:500px; margin-top:8px; } .practice-item .arrow { color:var(--gold); font-size:23px; }
+  .approach { max-width:1440px; margin:auto; display:grid; grid-template-columns:.55fr 1.3fr 1fr; gap:45px; } .approach-number { color:var(--gold); font-size:12px; letter-spacing:.1em; } .principles { border-left:1px solid var(--line); padding-left:35px; } .principles p { font-size:14px; color:#566164; margin-bottom:24px; } .principles strong { display:block; color:var(--ink); font-size:16px; font-weight:600; margin-bottom:2px; }
+  .contact { text-align:center; color:#fff; background:#1d3039; padding:clamp(85px,12vw,145px) 24px; } .contact .eyebrow { margin-bottom:19px; } .contact h2 { font-size:clamp(3rem,6vw,5.4rem); } .contact p:not(.eyebrow) { color:rgba(255,255,255,.75); max-width:500px; margin:25px auto 34px; } .button.light { background:var(--paper); color:var(--ink); } .contact-email { display:block; color:var(--gold); font-size:13px; margin-top:23px; }
+  footer { display:flex; align-items:center; justify-content:space-between; padding:25px max(5vw,32px); background:#132129; color:rgba(255,255,255,.7); font-size:11px; } footer .brand { color:#fff; } footer a:last-child { color:var(--gold); }
+  :focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
+  @media (max-width:760px) { .site-header { padding:21px 24px; } .menu-toggle { display:block; z-index:4; } nav { display:none; position:absolute; top:0; left:0; right:0; padding:83px 24px 28px; background:#132129; flex-direction:column; align-items:flex-start; gap:19px; } nav.is-open { display:flex; } .nav-cta { margin-top:5px; } .hero { min-height:700px; padding:132px 24px 92px; background-position:57% center; } .hero-footer { left:24px; right:24px; bottom:22px; gap:10px; font-size:8px; } .profile { display:flex; flex-direction:column; padding-left:24px; padding-right:24px; gap:43px; } .profile-image { width:100%; height:430px; } .section-intro { display:block; margin-bottom:47px; } .practice { padding-left:24px; padding-right:24px; } .practice-item { grid-template-columns:35px 1fr 20px; gap:12px; } .approach { padding-left:24px; padding-right:24px; grid-template-columns:1fr; gap:25px; } .principles { padding:26px 0 0; border-left:0; border-top:1px solid var(--line); } footer { padding:22px 24px; flex-wrap:wrap; gap:10px 20px; } }
+</style>
